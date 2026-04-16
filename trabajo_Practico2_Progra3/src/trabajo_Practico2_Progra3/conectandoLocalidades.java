@@ -11,12 +11,17 @@ import org.openstreetmap.gui.jmapviewer.Coordinate;
 import org.openstreetmap.gui.jmapviewer.JMapViewer;
 import org.openstreetmap.gui.jmapviewer.MapMarkerDot;
 import org.openstreetmap.gui.jmapviewer.Style;
+import org.openstreetmap.gui.jmapviewer.interfaces.MapPolygon;
 
 
 public class conectandoLocalidades {
 
 	private JFrame frame;
 	private JMapViewer mapa;
+	private logicaLocalidades logica;
+	
+	
+	
 
 	/**
 	 * Launch the application.
@@ -38,6 +43,7 @@ public class conectandoLocalidades {
 	 * Create the application.
 	 */
 	public conectandoLocalidades() {
+		logica = new logicaLocalidades();
 		initialize();
 	}
 
@@ -52,16 +58,17 @@ public class conectandoLocalidades {
 		
 		mapa = new JMapViewer();
 		
+		
+		
+		
+		Point punto = new Point(1000, 1000);
+		mapa.setCenter(punto);
+		logica.agregarPoligono();
+		mapa.addMapPolygon(logica.crearPoligono(logica.listaCoordeandas));
+		
 		frame.getContentPane().add(mapa);
 		
 		
-		Coordinate coordenada = new Coordinate(-30, -58); 
-		mapa.setDisplayPosition(coordenada, 2);		
-		MapMarkerDot marcador = new MapMarkerDot("Punto 1", coordenada);
-		
-		marcador.getStyle().setBackColor(Color.red);
-		
-		mapa.addMapMarker(marcador);
 		
 		
 			
