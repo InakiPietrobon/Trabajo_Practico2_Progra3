@@ -106,9 +106,9 @@ public class conectandoLocalidades {
 		
 		
 		
-		//logica.agregarPoligono();
-//		MapPolygon poligono = new MapPolygonImpl(logica.listaCoordeandas);
-//		mapa.addMapPolygon(poligono);
+		logica.agregarPoligono();
+		MapPolygon poligono = new MapPolygonImpl(logica.listaCoordeandas);
+		mapa.addMapPolygon(poligono);
 		
 //		System.out.println(mapa.getMeterPerPixel());
 			

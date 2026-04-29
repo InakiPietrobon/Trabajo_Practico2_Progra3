@@ -27,11 +27,11 @@ public class logicaLocalidades {
 	
 	
 	public void agregarPoligono() {
-		listaCoordeandas.add(crearCoordenada(10, 1));
-		listaCoordeandas.add(crearCoordenada(1, 10));
-		listaCoordeandas.add(crearCoordenada(2, 12));
-		listaCoordeandas.add(crearCoordenada(13, 3));
-		listaCoordeandas.add(crearCoordenada(14, 14));
+		listaCoordeandas.add(crearCoordenada(-34, -63));
+		listaCoordeandas.add(crearCoordenada(-35, -62));
+		listaCoordeandas.add(crearCoordenada(-36, -61));
+		listaCoordeandas.add(crearCoordenada(-37, -60));
+		listaCoordeandas.add(crearCoordenada(-39, -59));
 	}
 	
 	
