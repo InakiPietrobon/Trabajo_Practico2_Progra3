@@ -19,6 +19,8 @@ import org.openstreetmap.gui.jmapviewer.interfaces.MapPolygon;
 import javax.swing.JPanel;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
+import java.util.ArrayList;
+import java.util.HashMap;
 
 import javax.net.ssl.CertPathTrustManagerParameters;
 import javax.swing.JButton;
@@ -39,7 +41,7 @@ public class conectandoLocalidades {
 	private logicaLocalidades logica;
 	
 	
-	
+	HashMap<String, ArrayList<Coordinate>> listas = new HashMap<>();
 	
 
 	/**
@@ -91,7 +93,19 @@ public class conectandoLocalidades {
 		
 		panel_1.add(mapa);
 		
+		////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+		////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+		//ESTO SE TIENE QUE CAMBIAR JUNTO CON LA INTERFAZ, SE LLAMARIA CON LOS BOTONES Y TODO ESO
+		logica.crearListaCoordenada("hola", listas);
 		
+		logica.agregarCoordenadaAListaCoordenada("hola", listas, 1, 1);
+		
+		
+		MapPolygon poligono = new MapPolygonImpl(listas.get("hola"));
+		mapa.addMapPolygon(poligono);
+		
+		////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+		////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		
 //		panel_1.add(mapa);
 //		mapa.setLayout(null);
@@ -104,11 +118,6 @@ public class conectandoLocalidades {
 //		btnNewButton.setBounds(99, 213, 89, 23);
 //		frame.getContentPane().add(btnNewButton);
 		
-		
-		
-		logica.agregarPoligono();
-		MapPolygon poligono = new MapPolygonImpl(logica.listaCoordeandas);
-		mapa.addMapPolygon(poligono);
 		
 //		System.out.println(mapa.getMeterPerPixel());
 			
