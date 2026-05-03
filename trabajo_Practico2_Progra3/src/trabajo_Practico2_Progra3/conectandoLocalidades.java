@@ -32,14 +32,15 @@ import java.awt.Dimension;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Rectangle;
+import javax.swing.JDesktopPane;
+import javax.swing.JInternalFrame;
 
 
 public class conectandoLocalidades {
 
 	private JFrame frame;
-	
 	private logicaLocalidades logica;
-	
+	private JInternalFrame frameMapa;
 	
 	HashMap<String, ArrayList<Coordinate>> listas = new HashMap<>();
 	
@@ -82,16 +83,24 @@ public class conectandoLocalidades {
 		frame.setTitle("Conectando Localidades");
 		frame.getContentPane().setLayout(null);
 		
-		JPanel panel_1 = new JPanel();
-		panel_1.setBounds(0, 11, 299, 521);
-		frame.getContentPane().add(panel_1);
-		panel_1.setLayout(null);
+	
 		
 		
-		mapa.setSize(panel_1.getSize());
-		mapa.setBounds(new Rectangle(0, 0, 289, 510));
 		
-		panel_1.add(mapa);
+		
+		
+		frameMapa = new JInternalFrame("New JInternalFrame");
+		frameMapa.setResizable(true);
+		frameMapa.setBounds(321, 11, 309, 321);
+		frame.getContentPane().add(frameMapa);
+		frameMapa.getContentPane().setLayout(null);
+		frameMapa.setVisible(true);
+		
+		mapa.setSize(frameMapa.getSize());
+		
+		
+		frameMapa.getContentPane().add(mapa);
+		
 		
 		////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
