@@ -6,34 +6,54 @@ import java.util.List;
 import java.util.Map;
 
 public class Kruskal {
+	
     public List<Conexion> calcularAGM(List<Localidad> localidades, double cKm, double cExc, double cProv) {
-        List<Conexion> arbolGeneradorMinimo = new ArrayList<>();
-        if (localidades.size() < 2) return arbolGeneradorMinimo;
+        if (localidades.size() < 2) return new ArrayList<>();
 
-        List<Conexion> todasLasConexiones = new ArrayList<>();
-        for (int i = 0; i < localidades.size(); i++) {
-            for (int j = i + 1; j < localidades.size(); j++) {
-                todasLasConexiones.add(new Conexion(localidades.get(i), localidades.get(j)));
-            }
-        }
+        
+        List<Conexion> todasLasConexiones = generarConexionesPosibles(localidades);
+        
         
         todasLasConexiones.sort((c1, c2) -> Double.compare(
             c1.tasarCosto(cKm, cExc, cProv),
             c2.tasarCosto(cKm, cExc, cProv)
         ));
 
+        
+        return construirArbolKruskal(todasLasConexiones, localidades);
+    }
+
+    
+    private List<Conexion> generarConexionesPosibles(List<Localidad> localidades) {
+        List<Conexion> conexiones = new ArrayList<>();
+        for (int i = 0; i < localidades.size(); i++) {
+            for (int j = i + 1; j < localidades.size(); j++) {
+                conexiones.add(new Conexion(localidades.get(i), localidades.get(j)));
+            }
+        }
+        return conexiones;
+    }
+
+    
+    private List<Conexion> construirArbolKruskal(List<Conexion> conexionesOrdenadas, List<Localidad> localidades) {
+        List<Conexion> arbolGeneradorMinimo = new ArrayList<>();
         Map<Localidad, Localidad> padre = new HashMap<>();
-        for (Localidad l : localidades) padre.put(l, l);
+        
+        for (Localidad l : localidades) {
+            padre.put(l, l);
+        }
 
         int aristasAgregadas = 0;
-        for (Conexion conexion : todasLasConexiones) {
+        for (Conexion conexion : conexionesOrdenadas) {
             Localidad raizOrigen = buscarRaiz(conexion.getOrigen(), padre);
             Localidad raizDestino = buscarRaiz(conexion.getDestino(), padre);
 
             if (!raizOrigen.equals(raizDestino)) {
                 arbolGeneradorMinimo.add(conexion);
-                padre.put(raizOrigen, raizDestino);
+                padre.put(raizOrigen, raizDestino); 
                 aristasAgregadas++;
+                
+                
                 if (aristasAgregadas == localidades.size() - 1) break;
             }
         }
