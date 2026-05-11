@@ -1,5 +1,110 @@
-LOC;A;Córdoba;-36.49197347059368;-64.3359375;-16776961
-LOC;B;Catamarca;-36.50522086338425;-64.0283203125;-16776961
-LOC;C;Catamarca;-36.142310873529986;-64.1986083984375;-16711936
-OPT;A;B
-OPT;A;C
+{
+  "localidades": [
+    {
+      "nombre": "A",
+      "provincia": "Buenos Aires",
+      "latitud": -37.17335693522159,
+      "longitud": -61.3916015625,
+      "color": -256
+    },
+    {
+      "nombre": "B",
+      "provincia": "Buenos Aires",
+      "latitud": -37.16031654673676,
+      "longitud": -65.21484375,
+      "color": -1
+    },
+    {
+      "nombre": "C",
+      "provincia": "Buenos Aires",
+      "latitud": -39.232253141714885,
+      "longitud": -67.32421875,
+      "color": -256
+    },
+    {
+      "nombre": "D",
+      "provincia": "Buenos Aires",
+      "latitud": -34.921971036163754,
+      "longitud": -62.7978515625,
+      "color": -256
+    },
+    {
+      "nombre": "F",
+      "provincia": "Buenos Aires",
+      "latitud": -36.3151251474805,
+      "longitud": -67.587890625,
+      "color": -256
+    }
+  ],
+  "manuales": [],
+  "optimas": [
+    {
+      "origen": {
+        "nombre": "B",
+        "provincia": "Buenos Aires",
+        "latitud": -37.16031654673676,
+        "longitud": -65.21484375,
+        "color": -1
+      },
+      "destino": {
+        "nombre": "F",
+        "provincia": "Buenos Aires",
+        "latitud": -36.3151251474805,
+        "longitud": -67.587890625,
+        "color": -256
+      },
+      "distancia": 231.39544712111262
+    },
+    {
+      "origen": {
+        "nombre": "A",
+        "provincia": "Buenos Aires",
+        "latitud": -37.17335693522159,
+        "longitud": -61.3916015625,
+        "color": -256
+      },
+      "destino": {
+        "nombre": "D",
+        "provincia": "Buenos Aires",
+        "latitud": -34.921971036163754,
+        "longitud": -62.7978515625,
+        "color": -256
+      },
+      "distancia": 280.4457823090498
+    },
+    {
+      "origen": {
+        "nombre": "B",
+        "provincia": "Buenos Aires",
+        "latitud": -37.16031654673676,
+        "longitud": -65.21484375,
+        "color": -1
+      },
+      "destino": {
+        "nombre": "C",
+        "provincia": "Buenos Aires",
+        "latitud": -39.232253141714885,
+        "longitud": -67.32421875,
+        "color": -256
+      },
+      "distancia": 295.03529733393395
+    },
+    {
+      "origen": {
+        "nombre": "B",
+        "provincia": "Buenos Aires",
+        "latitud": -37.16031654673676,
+        "longitud": -65.21484375,
+        "color": -1
+      },
+      "destino": {
+        "nombre": "D",
+        "provincia": "Buenos Aires",
+        "latitud": -34.921971036163754,
+        "longitud": -62.7978515625,
+        "color": -256
+      },
+      "distancia": 330.3871980519517
+    }
+  ]
+}

@@ -11,7 +11,7 @@ public class Conexion implements Comparable<Conexion> {
         this.distancia = origen.distanciaEnKm(destino);
     }
 
-    public double tasarCosto(double costoPorKm, double porcentajeExceso, double costoInterprovincial) {
+    public double calcularCosto(double costoPorKm, double porcentajeExceso, double costoInterprovincial) {
         double costoBase = this.distancia * costoPorKm;
         if (this.distancia > 300) {
             costoBase += costoBase * (porcentajeExceso / 100.0);

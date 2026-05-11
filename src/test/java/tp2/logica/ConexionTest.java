@@ -24,7 +24,7 @@ public class ConexionTest {
     @Test
     public void testCostoNormal() {
         Conexion con = new Conexion(locOrigen, locDestinoCerca);
-        double costo = con.tasarCosto(10.0, 20.0, 5000.0);
+        double costo = con.calcularCosto(10.0, 20.0, 5000.0);
         
         assertEquals(1111.9, costo, 5.0);
     }
@@ -32,7 +32,7 @@ public class ConexionTest {
     @Test
     public void testCostoConAumentoPorDistancia() {
         Conexion con = new Conexion(locOrigen, locDestinoLejos);
-        double costo = con.tasarCosto(10.0, 20.0, 5000.0);
+        double costo = con.calcularCosto(10.0, 20.0, 5000.0);
 
         assertEquals(5336.4, costo, 10.0);
     }
@@ -40,7 +40,7 @@ public class ConexionTest {
     @Test
     public void testCostoInterprovincial() {
         Conexion con = new Conexion(locOrigen, locDestinoOtraProvincia);
-        double costo = con.tasarCosto(10.0, 20.0, 5000.0);
+        double costo = con.calcularCosto(10.0, 20.0, 5000.0);
         
         assertEquals(6111.9, costo, 5.0);
     }

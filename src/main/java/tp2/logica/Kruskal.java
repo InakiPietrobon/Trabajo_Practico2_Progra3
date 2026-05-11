@@ -1,29 +1,29 @@
 package main.java.tp2.logica;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 public class Kruskal {
-	
+    
     public List<Conexion> calcularAGM(List<Localidad> localidades, double cKm, double cExc, double cProv) {
         if (localidades.size() < 2) return new ArrayList<>();
 
-        
         List<Conexion> todasLasConexiones = generarConexionesPosibles(localidades);
-        
-        
-        todasLasConexiones.sort((c1, c2) -> Double.compare(
-            c1.tasarCosto(cKm, cExc, cProv),
-            c2.tasarCosto(cKm, cExc, cProv)
-        ));
 
-        
+        Collections.sort(todasLasConexiones, new Comparator<Conexion>() {
+            @Override
+            public int compare(Conexion c1, Conexion c2) {
+                return Double.compare(c1.calcularCosto(cKm, cExc, cProv), c2.calcularCosto(cKm, cExc, cProv));
+            }
+        });
+
         return construirArbolKruskal(todasLasConexiones, localidades);
     }
 
-    
     private List<Conexion> generarConexionesPosibles(List<Localidad> localidades) {
         List<Conexion> conexiones = new ArrayList<>();
         for (int i = 0; i < localidades.size(); i++) {
@@ -34,7 +34,6 @@ public class Kruskal {
         return conexiones;
     }
 
-    
     private List<Conexion> construirArbolKruskal(List<Conexion> conexionesOrdenadas, List<Localidad> localidades) {
         List<Conexion> arbolGeneradorMinimo = new ArrayList<>();
         Map<Localidad, Localidad> padre = new HashMap<>();
@@ -52,7 +51,6 @@ public class Kruskal {
                 arbolGeneradorMinimo.add(conexion);
                 padre.put(raizOrigen, raizDestino); 
                 aristasAgregadas++;
-                
                 
                 if (aristasAgregadas == localidades.size() - 1) break;
             }

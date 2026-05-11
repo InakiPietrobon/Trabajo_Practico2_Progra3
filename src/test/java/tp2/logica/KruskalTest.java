@@ -24,7 +24,7 @@ public class KruskalTest {
         
         double costoTotal = 0;
         for (Conexion con : agm) {
-            costoTotal += con.tasarCosto(10.0, 0.0, 0.0);
+            costoTotal += con.calcularCosto(10.0, 0.0, 0.0);
         }
         
         assertEquals(3335.0, costoTotal, 10.0);
